@@ -1,23 +1,24 @@
-# Agenda Jus
-Um escritório de advocacia entrou em contato com o Jus.com.br, perguntando se poderíamos desenvolver uma agenda on-line: onde todos os funcionários autorizados do escritório, podem gerenciar a carteira de clientes da empresa.
+# README
 
+This README would normally document whatever steps are necessary to get the
+application up and running.
 
-## Especificação
-Você deve implementar um sistema para gerenciamento de contatos, com as seguintes funcionalidades.
-- 1 - Login 
-  - Cadastro de usuário
-- 2 - Contato 
-  - Adicionar
-  - Excluir
-  - Listar
-  - Buscar
+Things you may want to cover:
 
-## Regra de negócio
-- Nenhum contato pode ser removido do banco de dados, apenas desativado.
-- Existe 2 (dois) níveis de usuários: super user e user comum. 
-- Usuário do tipo `comum`: pode visualizar apenas os contatos que ele mesmo cadastrou.
-- Usuário do tipo `admin`: pode visualizar todos os contatos.
+* Ruby version
 
-## Diagrama de Classe
-`O diagrama está incompleto, é apenas uma dica, sinta-se livre =)`
-![diagram](diagram.png)
+* System dependencies
+
+* Configuration
+
+* Database creation
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...
