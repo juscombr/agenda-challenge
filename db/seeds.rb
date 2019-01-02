@@ -10,7 +10,7 @@ contacts = []
         email:Faker::Internet.email,
         company: Faker::Company.name,
         address: "#{Faker::Address.street_name} #{Faker::Address.zip} #{Faker::Address.city}",
-        phone: Faker::PhoneNumber.cell_phone
+        phone: Faker::PhoneNumber.cell_phone #=> "(186)285-7925"
     }
     contacts.push(new_contact)
 end

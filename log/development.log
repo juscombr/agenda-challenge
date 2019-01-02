@@ -3226,3 +3226,877 @@ Processing by ContactsController#index as HTML
 Completed 200 OK in 119ms (Views: 114.9ms | ActiveRecord: 1.1ms)
 
 
+Started GET "/" for 127.0.0.1 at 2019-01-01 11:24:38 -0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/devs/.rvm/gems/ruby-2.3.1/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by ContactsController#index as HTML
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (0.2ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts"[0m
+  ↳ app/views/contacts/index.html.erb:4
+  Rendered contacts/index.html.erb within layouts/application (19.7ms)
+Completed 200 OK in 270ms (Views: 259.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/contacts/new" for 127.0.0.1 at 2019-01-01 11:24:44 -0300
+Processing by ContactsController#new as HTML
+  Rendering contacts/new.html.erb within layouts/application
+  Rendered contacts/_form.html.erb (112.5ms)
+  Rendered contacts/new.html.erb within layouts/application (114.8ms)
+Completed 200 OK in 193ms (Views: 190.3ms | ActiveRecord: 0.0ms)
+
+
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ bin/rails:9
+  [1m[35m (478.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (412.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateContacts (20181228001538)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "contacts" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "company" varchar, "email" varchar, "phone" varchar, "address" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20181228001538_create_contacts.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20181228001538"]]
+  ↳ bin/rails:9
+  [1m[35m (427.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateUsers (20190102115051)
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "document" varchar, "kind" integer, "status" integer, "notes" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190102115051_create_users.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190102115051"]]
+  ↳ bin/rails:9
+  [1m[35m (346.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to AddDeviseToUsers (20190102115146)
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (1.3ms)[0m  [1m[35mALTER TABLE "users" ADD "email" varchar DEFAULT '' NOT NULL[0m
+  ↳ db/migrate/20190102115146_add_devise_to_users.rb:7
+  [1m[35m (1.5ms)[0m  [1m[35mALTER TABLE "users" ADD "encrypted_password" varchar DEFAULT '' NOT NULL[0m
+  ↳ db/migrate/20190102115146_add_devise_to_users.rb:8
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "users" ADD "reset_password_token" varchar[0m
+  ↳ db/migrate/20190102115146_add_devise_to_users.rb:11
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "users" ADD "reset_password_sent_at" datetime[0m
+  ↳ db/migrate/20190102115146_add_devise_to_users.rb:12
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "users" ADD "remember_created_at" datetime[0m
+  ↳ db/migrate/20190102115146_add_devise_to_users.rb:15
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  ↳ db/migrate/20190102115146_add_devise_to_users.rb:40
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  ↳ db/migrate/20190102115146_add_devise_to_users.rb:41
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190102115146"]]
+  ↳ bin/rails:9
+  [1m[35m (343.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-01-02 11:53:20.583502"], ["updated_at", "2019-01-02 11:53:20.583502"]]
+  ↳ bin/rails:9
+  [1m[35m (226.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mContact Load (0.1ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts"[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[36mContact Create (0.3ms)[0m  [1m[32mINSERT INTO "contacts" ("id", "name", "company", "email", "phone", "address", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 0], ["name", "Keely McKenzie DVM"], ["company", "Schmeler LLC"], ["email", "ed@olson.io"], ["phone", "528.092.5444"], ["address", "Charley Rapids 74279-0939 Sheliaport"], ["created_at", "2019-01-02 11:53:29.088877"], ["updated_at", "2019-01-02 11:53:29.088877"]]
+  ↳ db/seeds.rb:18
+  [1m[35m (367.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[36mContact Create (0.7ms)[0m  [1m[32mINSERT INTO "contacts" ("id", "name", "company", "email", "phone", "address", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["name", "Miss Wallace Rogahn"], ["company", "Wilderman, Larkin and Torphy"], ["email", "marshallhirthe@blanda.io"], ["phone", "(750) 053-1127"], ["address", "Wm Village 47586-5482 Stehrfurt"], ["created_at", "2019-01-02 11:53:29.460298"], ["updated_at", "2019-01-02 11:53:29.460298"]]
+  ↳ db/seeds.rb:18
+  [1m[35m (211.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[36mContact Create (0.7ms)[0m  [1m[32mINSERT INTO "contacts" ("id", "name", "company", "email", "phone", "address", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 2], ["name", "Ebonie Bahringer Jr."], ["company", "Bernier, Gibson and Spinka"], ["email", "rachelle@spencerreilly.com"], ["phone", "577.793.3387"], ["address", "Schiller Isle 76342-5849 Prohaskaview"], ["created_at", "2019-01-02 11:53:29.678965"], ["updated_at", "2019-01-02 11:53:29.678965"]]
+  ↳ db/seeds.rb:18
+  [1m[35m (281.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[36mContact Create (0.7ms)[0m  [1m[32mINSERT INTO "contacts" ("id", "name", "company", "email", "phone", "address", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 3], ["name", "Ms. Tanna Willms"], ["company", "Jaskolski, Hilll and Kautzer"], ["email", "coreywolf@stanton.org"], ["phone", "(871) 753-3054"], ["address", "Tomasa Brooks 35463 Hellermouth"], ["created_at", "2019-01-02 11:53:29.969793"], ["updated_at", "2019-01-02 11:53:29.969793"]]
+  ↳ db/seeds.rb:18
+  [1m[35m (266.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[36mContact Create (0.9ms)[0m  [1m[32mINSERT INTO "contacts" ("id", "name", "company", "email", "phone", "address", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 4], ["name", "Stanford Steuber"], ["company", "Price and Sons"], ["email", "bettye@goyette.io"], ["phone", "1-755-760-5542"], ["address", "Forest Mall 06687-8775 New Kimbra"], ["created_at", "2019-01-02 11:53:30.243648"], ["updated_at", "2019-01-02 11:53:30.243648"]]
+  ↳ db/seeds.rb:18
+  [1m[35m (228.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[36mContact Create (0.7ms)[0m  [1m[32mINSERT INTO "contacts" ("id", "name", "company", "email", "phone", "address", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 5], ["name", "Monty Stamm"], ["company", "Schuppe-Kreiger"], ["email", "pasquale@muellerhartmann.com"], ["phone", "625-067-4248"], ["address", "West Hills 40619 New Benny"], ["created_at", "2019-01-02 11:53:30.479900"], ["updated_at", "2019-01-02 11:53:30.479900"]]
+  ↳ db/seeds.rb:18
+  [1m[35m (272.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[36mContact Create (0.2ms)[0m  [1m[32mINSERT INTO "contacts" ("id", "name", "company", "email", "phone", "address", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 6], ["name", "Mr. Garfield Emmerich"], ["company", "Balistreri, Kuvalis and Schumm"], ["email", "kentritchie@schadenrobel.co"], ["phone", "(109) 974-4859"], ["address", "Ina Mill 82804-2711 New Gabrielborough"], ["created_at", "2019-01-02 11:53:30.759869"], ["updated_at", "2019-01-02 11:53:30.759869"]]
+  ↳ db/seeds.rb:18
+  [1m[35m (275.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[36mContact Create (0.7ms)[0m  [1m[32mINSERT INTO "contacts" ("id", "name", "company", "email", "phone", "address", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 7], ["name", "Elliott DuBuque V"], ["company", "Douglas, Wisoky and Shields"], ["email", "alysonconn@lehner.name"], ["phone", "396.175.2496"], ["address", "Leannon Islands 33226-9932 Lake Lisette"], ["created_at", "2019-01-02 11:53:31.039723"], ["updated_at", "2019-01-02 11:53:31.039723"]]
+  ↳ db/seeds.rb:18
+  [1m[35m (217.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[36mContact Create (0.7ms)[0m  [1m[32mINSERT INTO "contacts" ("id", "name", "company", "email", "phone", "address", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 8], ["name", "Alvina McLaughlin"], ["company", "Keebler and Sons"], ["email", "asley@waelchi.info"], ["phone", "1-134-821-3238"], ["address", "Marion Mount 76879-0976 West Deanne"], ["created_at", "2019-01-02 11:53:31.264636"], ["updated_at", "2019-01-02 11:53:31.264636"]]
+  ↳ db/seeds.rb:18
+  [1m[35m (215.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[36mContact Create (0.8ms)[0m  [1m[32mINSERT INTO "contacts" ("id", "name", "company", "email", "phone", "address", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 9], ["name", "Kenia Okuneva"], ["company", "Harris LLC"], ["email", "margaritastokes@kuphalleannon.info"], ["phone", "900-606-4163"], ["address", "Feeney Well 17307-4234 Lake Alicaborough"], ["created_at", "2019-01-02 11:53:31.488552"], ["updated_at", "2019-01-02 11:53:31.488552"]]
+  ↳ db/seeds.rb:18
+  [1m[35m (277.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:20
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ db/seeds.rb:20
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mContact Load (0.2ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts"[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[36mContact Destroy (0.2ms)[0m  [1m[31mDELETE FROM "contacts" WHERE "contacts"."id" = ?[0m  [["id", 0]]
+  ↳ db/seeds.rb:2
+  [1m[35m (376.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[36mContact Destroy (0.5ms)[0m  [1m[31mDELETE FROM "contacts" WHERE "contacts"."id" = ?[0m  [["id", 1]]
+  ↳ db/seeds.rb:2
+  [1m[35m (231.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[36mContact Destroy (0.8ms)[0m  [1m[31mDELETE FROM "contacts" WHERE "contacts"."id" = ?[0m  [["id", 2]]
+  ↳ db/seeds.rb:2
+  [1m[35m (283.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[36mContact Destroy (0.6ms)[0m  [1m[31mDELETE FROM "contacts" WHERE "contacts"."id" = ?[0m  [["id", 3]]
+  ↳ db/seeds.rb:2
+  [1m[35m (224.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[36mContact Destroy (0.6ms)[0m  [1m[31mDELETE FROM "contacts" WHERE "contacts"."id" = ?[0m  [["id", 4]]
+  ↳ db/seeds.rb:2
+  [1m[35m (213.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[36mContact Destroy (0.2ms)[0m  [1m[31mDELETE FROM "contacts" WHERE "contacts"."id" = ?[0m  [["id", 5]]
+  ↳ db/seeds.rb:2
+  [1m[35m (282.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[36mContact Destroy (0.9ms)[0m  [1m[31mDELETE FROM "contacts" WHERE "contacts"."id" = ?[0m  [["id", 6]]
+  ↳ db/seeds.rb:2
+  [1m[35m (277.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[36mContact Destroy (0.6ms)[0m  [1m[31mDELETE FROM "contacts" WHERE "contacts"."id" = ?[0m  [["id", 7]]
+  ↳ db/seeds.rb:2
+  [1m[35m (278.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[36mContact Destroy (0.2ms)[0m  [1m[31mDELETE FROM "contacts" WHERE "contacts"."id" = ?[0m  [["id", 8]]
+  ↳ db/seeds.rb:2
+  [1m[35m (231.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[36mContact Destroy (0.5ms)[0m  [1m[31mDELETE FROM "contacts" WHERE "contacts"."id" = ?[0m  [["id", 9]]
+  ↳ db/seeds.rb:2
+  [1m[35m (225.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[36mContact Create (0.2ms)[0m  [1m[32mINSERT INTO "contacts" ("id", "name", "company", "email", "phone", "address", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 0], ["name", "Sophia Kovacek"], ["company", "Kuhlman, Goyette and Corwin"], ["email", "darlena@bechtelar.biz"], ["phone", "1-422-023-3344"], ["address", "Larson Junction 08143-2454 Port Chastity"], ["created_at", "2019-01-02 11:54:26.466144"], ["updated_at", "2019-01-02 11:54:26.466144"]]
+  ↳ db/seeds.rb:18
+  [1m[35m (229.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[36mContact Create (0.8ms)[0m  [1m[32mINSERT INTO "contacts" ("id", "name", "company", "email", "phone", "address", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["name", "Annamarie Collins"], ["company", "Koepp-Wilderman"], ["email", "leighann@andersonvolkman.name"], ["phone", "240.863.3625"], ["address", "Eddy Fords 37551 New Douglasville"], ["created_at", "2019-01-02 11:54:26.701131"], ["updated_at", "2019-01-02 11:54:26.701131"]]
+  ↳ db/seeds.rb:18
+  [1m[35m (219.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[36mContact Create (4.4ms)[0m  [1m[32mINSERT INTO "contacts" ("id", "name", "company", "email", "phone", "address", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 2], ["name", "Mrs. Gil Halvorson"], ["company", "Moen-Maggio"], ["email", "ranabashirian@beahanjohnston.com"], ["phone", "528.438.2849"], ["address", "Senger Drive 67616-5237 Leonbury"], ["created_at", "2019-01-02 11:54:26.928927"], ["updated_at", "2019-01-02 11:54:26.928927"]]
+  ↳ db/seeds.rb:18
+  [1m[35m (214.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[36mContact Create (0.7ms)[0m  [1m[32mINSERT INTO "contacts" ("id", "name", "company", "email", "phone", "address", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 3], ["name", "Jacob Walsh"], ["company", "Marks-Fritsch"], ["email", "valentineklocko@hauckortiz.io"], ["phone", "(669) 627-3298"], ["address", "Max Mountains 84304 West Rebahaven"], ["created_at", "2019-01-02 11:54:27.154343"], ["updated_at", "2019-01-02 11:54:27.154343"]]
+  ↳ db/seeds.rb:18
+  [1m[35m (272.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[36mContact Create (0.3ms)[0m  [1m[32mINSERT INTO "contacts" ("id", "name", "company", "email", "phone", "address", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 4], ["name", "Terina Waters"], ["company", "Bode-Abshire"], ["email", "emerytorphy@crooks.info"], ["phone", "449.518.4198"], ["address", "Kub Square 51737-0291 East Inocencia"], ["created_at", "2019-01-02 11:54:27.434455"], ["updated_at", "2019-01-02 11:54:27.434455"]]
+  ↳ db/seeds.rb:18
+  [1m[35m (230.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[36mContact Create (0.9ms)[0m  [1m[32mINSERT INTO "contacts" ("id", "name", "company", "email", "phone", "address", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 5], ["name", "Chadwick Johns"], ["company", "Erdman Inc"], ["email", "robbieschumm@littel.info"], ["phone", "1-527-904-1214"], ["address", "Mosciski Prairie 83568 Shaunteberg"], ["created_at", "2019-01-02 11:54:27.670095"], ["updated_at", "2019-01-02 11:54:27.670095"]]
+  ↳ db/seeds.rb:18
+  [1m[35m (262.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[36mContact Create (0.7ms)[0m  [1m[32mINSERT INTO "contacts" ("id", "name", "company", "email", "phone", "address", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 6], ["name", "Jaqueline Monahan"], ["company", "Rutherford-Monahan"], ["email", "renato@orn.biz"], ["phone", "140-833-9913"], ["address", "Volkman Ridge 56979-0218 Lake Luisa"], ["created_at", "2019-01-02 11:54:27.943712"], ["updated_at", "2019-01-02 11:54:27.943712"]]
+  ↳ db/seeds.rb:18
+  [1m[35m (220.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[36mContact Create (1.0ms)[0m  [1m[32mINSERT INTO "contacts" ("id", "name", "company", "email", "phone", "address", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 7], ["name", "Mac Rohan"], ["company", "Schiller LLC"], ["email", "cherelle@leffler.com"], ["phone", "(592) 950-0085"], ["address", "Hauck Summit 63287 Lake Pablo"], ["created_at", "2019-01-02 11:54:28.173593"], ["updated_at", "2019-01-02 11:54:28.173593"]]
+  ↳ db/seeds.rb:18
+  [1m[35m (291.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[36mContact Create (0.8ms)[0m  [1m[32mINSERT INTO "contacts" ("id", "name", "company", "email", "phone", "address", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 8], ["name", "Kayleigh Schmitt"], ["company", "Monahan, Kub and Cartwright"], ["email", "reynaldogerlach@lefflerernser.biz"], ["phone", "497-202-1211"], ["address", "Sheldon Cliff 88117 East Tawnyhaven"], ["created_at", "2019-01-02 11:54:28.475675"], ["updated_at", "2019-01-02 11:54:28.475675"]]
+  ↳ db/seeds.rb:18
+  [1m[35m (225.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[36mContact Create (0.7ms)[0m  [1m[32mINSERT INTO "contacts" ("id", "name", "company", "email", "phone", "address", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 9], ["name", "Gwendolyn VonRueden"], ["company", "Lakin-Koss"], ["email", "domoniquekeebler@dubuque.biz"], ["phone", "(894) 568-0145"], ["address", "Oberbrunner Highway 75580 North Paulmouth"], ["created_at", "2019-01-02 11:54:28.710093"], ["updated_at", "2019-01-02 11:54:28.710093"]]
+  ↳ db/seeds.rb:18
+  [1m[35m (279.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:20
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ db/seeds.rb:20
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mContact Load (0.2ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts"[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[36mContact Destroy (0.2ms)[0m  [1m[31mDELETE FROM "contacts" WHERE "contacts"."id" = ?[0m  [["id", 0]]
+  ↳ db/seeds.rb:2
+  [1m[35m (338.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[36mContact Destroy (0.7ms)[0m  [1m[31mDELETE FROM "contacts" WHERE "contacts"."id" = ?[0m  [["id", 1]]
+  ↳ db/seeds.rb:2
+  [1m[35m (274.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[36mContact Destroy (0.7ms)[0m  [1m[31mDELETE FROM "contacts" WHERE "contacts"."id" = ?[0m  [["id", 2]]
+  ↳ db/seeds.rb:2
+  [1m[35m (270.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[36mContact Destroy (0.6ms)[0m  [1m[31mDELETE FROM "contacts" WHERE "contacts"."id" = ?[0m  [["id", 3]]
+  ↳ db/seeds.rb:2
+  [1m[35m (226.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[36mContact Destroy (0.6ms)[0m  [1m[31mDELETE FROM "contacts" WHERE "contacts"."id" = ?[0m  [["id", 4]]
+  ↳ db/seeds.rb:2
+  [1m[35m (266.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[36mContact Destroy (0.6ms)[0m  [1m[31mDELETE FROM "contacts" WHERE "contacts"."id" = ?[0m  [["id", 5]]
+  ↳ db/seeds.rb:2
+  [1m[35m (224.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[36mContact Destroy (0.7ms)[0m  [1m[31mDELETE FROM "contacts" WHERE "contacts"."id" = ?[0m  [["id", 6]]
+  ↳ db/seeds.rb:2
+  [1m[35m (268.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[36mContact Destroy (0.7ms)[0m  [1m[31mDELETE FROM "contacts" WHERE "contacts"."id" = ?[0m  [["id", 7]]
+  ↳ db/seeds.rb:2
+  [1m[35m (271.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[36mContact Destroy (0.7ms)[0m  [1m[31mDELETE FROM "contacts" WHERE "contacts"."id" = ?[0m  [["id", 8]]
+  ↳ db/seeds.rb:2
+  [1m[35m (220.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[36mContact Destroy (0.7ms)[0m  [1m[31mDELETE FROM "contacts" WHERE "contacts"."id" = ?[0m  [["id", 9]]
+  ↳ db/seeds.rb:2
+  [1m[35m (287.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[36mContact Create (0.4ms)[0m  [1m[32mINSERT INTO "contacts" ("id", "name", "company", "email", "phone", "address", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 0], ["name", "Lino Block I"], ["company", "Parisian-Renner"], ["email", "sonyalittle@reichel.name"], ["phone", "+90(448) 000 5880"], ["address", "Reichert Squares 76371-5560 Murrayton"], ["created_at", "2019-01-02 11:56:47.867813"], ["updated_at", "2019-01-02 11:56:47.867813"]]
+  ↳ db/seeds.rb:18
+  [1m[35m (271.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[36mContact Create (0.8ms)[0m  [1m[32mINSERT INTO "contacts" ("id", "name", "company", "email", "phone", "address", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["name", "Prince Maggio"], ["company", "Fisher-Beier"], ["email", "joie@lind.name"], ["phone", "+90(216) 903 7410"], ["address", "Rolfson Stream 36437-3665 Noreenchester"], ["created_at", "2019-01-02 11:56:48.144621"], ["updated_at", "2019-01-02 11:56:48.144621"]]
+  ↳ db/seeds.rb:18
+  [1m[35m (271.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[36mContact Create (1.2ms)[0m  [1m[32mINSERT INTO "contacts" ("id", "name", "company", "email", "phone", "address", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 2], ["name", "Dr. Carmela Padberg"], ["company", "Jast, Wolff and Grimes"], ["email", "everettjerde@jenkinswintheiser.com"], ["phone", "+90(731) 498 0109"], ["address", "Gerhold Centers 45584 New Cherie"], ["created_at", "2019-01-02 11:56:48.427511"], ["updated_at", "2019-01-02 11:56:48.427511"]]
+  ↳ db/seeds.rb:18
+  [1m[35m (237.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[36mContact Create (0.7ms)[0m  [1m[32mINSERT INTO "contacts" ("id", "name", "company", "email", "phone", "address", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 3], ["name", "Oscar Homenick"], ["company", "Kuhn, Green and Mante"], ["email", "troy@oharatillman.info"], ["phone", "+90(243) 766 9672"], ["address", "Dare Overpass 02876-9209 Warnerborough"], ["created_at", "2019-01-02 11:56:48.674771"], ["updated_at", "2019-01-02 11:56:48.674771"]]
+  ↳ db/seeds.rb:18
+  [1m[35m (225.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[36mContact Create (1.0ms)[0m  [1m[32mINSERT INTO "contacts" ("id", "name", "company", "email", "phone", "address", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 4], ["name", "Laurie Ullrich"], ["company", "Shields, Hegmann and Murazik"], ["email", "jarvis@hoppe.biz"], ["phone", "+90(595) 326 8944"], ["address", "Veta Summit 05597-7968 South Emmaline"], ["created_at", "2019-01-02 11:56:48.908840"], ["updated_at", "2019-01-02 11:56:48.908840"]]
+  ↳ db/seeds.rb:18
+  [1m[35m (219.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[36mContact Create (0.9ms)[0m  [1m[32mINSERT INTO "contacts" ("id", "name", "company", "email", "phone", "address", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 5], ["name", "Genaro Lesch"], ["company", "Hoeger-O'Hara"], ["email", "gingergrant@torphy.biz"], ["phone", "+90(491) 923 6369"], ["address", "Stehr Mount 21941 Bridgettville"], ["created_at", "2019-01-02 11:56:49.137514"], ["updated_at", "2019-01-02 11:56:49.137514"]]
+  ↳ db/seeds.rb:18
+  [1m[35m (283.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[36mContact Create (0.8ms)[0m  [1m[32mINSERT INTO "contacts" ("id", "name", "company", "email", "phone", "address", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 6], ["name", "Mr. Wilburn Grimes"], ["company", "Nader-Gorczany"], ["email", "sheila@vonrueden.org"], ["phone", "+90(585) 977 1178"], ["address", "Azzie Circles 08337 West Lesia"], ["created_at", "2019-01-02 11:56:49.429133"], ["updated_at", "2019-01-02 11:56:49.429133"]]
+  ↳ db/seeds.rb:18
+  [1m[35m (228.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[36mContact Create (0.8ms)[0m  [1m[32mINSERT INTO "contacts" ("id", "name", "company", "email", "phone", "address", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 7], ["name", "Jonathan Bogisich"], ["company", "Fritsch, Haley and Koelpin"], ["email", "kesha@beermertz.co"], ["phone", "+90(480) 009 9110"], ["address", "Maile Tunnel 35178-2929 Lynwoodhaven"], ["created_at", "2019-01-02 11:56:49.665514"], ["updated_at", "2019-01-02 11:56:49.665514"]]
+  ↳ db/seeds.rb:18
+  [1m[35m (293.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[36mContact Create (0.9ms)[0m  [1m[32mINSERT INTO "contacts" ("id", "name", "company", "email", "phone", "address", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 8], ["name", "Essie Luettgen"], ["company", "Bergnaum, Fadel and Reynolds"], ["email", "krystinmacgyver@schroeder.net"], ["phone", "+90(394) 882 5307"], ["address", "Jazmin Rapids 06181-3718 New Terihaven"], ["created_at", "2019-01-02 11:56:49.966639"], ["updated_at", "2019-01-02 11:56:49.966639"]]
+  ↳ db/seeds.rb:18
+  [1m[35m (275.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[36mContact Create (1.0ms)[0m  [1m[32mINSERT INTO "contacts" ("id", "name", "company", "email", "phone", "address", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 9], ["name", "Tanisha Hagenes"], ["company", "Douglas Inc"], ["email", "connie@armstrong.co"], ["phone", "+90(901) 931 9384"], ["address", "Botsford Station 53667-3544 Kautzertown"], ["created_at", "2019-01-02 11:56:50.253291"], ["updated_at", "2019-01-02 11:56:50.253291"]]
+  ↳ db/seeds.rb:18
+  [1m[35m (308.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:20
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ db/seeds.rb:20
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mContact Load (0.2ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts"[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[36mContact Destroy (0.2ms)[0m  [1m[31mDELETE FROM "contacts" WHERE "contacts"."id" = ?[0m  [["id", 0]]
+  ↳ db/seeds.rb:2
+  [1m[35m (292.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[36mContact Destroy (0.7ms)[0m  [1m[31mDELETE FROM "contacts" WHERE "contacts"."id" = ?[0m  [["id", 1]]
+  ↳ db/seeds.rb:2
+  [1m[35m (274.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[36mContact Destroy (0.7ms)[0m  [1m[31mDELETE FROM "contacts" WHERE "contacts"."id" = ?[0m  [["id", 2]]
+  ↳ db/seeds.rb:2
+  [1m[35m (264.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[36mContact Destroy (0.5ms)[0m  [1m[31mDELETE FROM "contacts" WHERE "contacts"."id" = ?[0m  [["id", 3]]
+  ↳ db/seeds.rb:2
+  [1m[35m (277.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[36mContact Destroy (0.6ms)[0m  [1m[31mDELETE FROM "contacts" WHERE "contacts"."id" = ?[0m  [["id", 4]]
+  ↳ db/seeds.rb:2
+  [1m[35m (253.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[36mContact Destroy (0.5ms)[0m  [1m[31mDELETE FROM "contacts" WHERE "contacts"."id" = ?[0m  [["id", 5]]
+  ↳ db/seeds.rb:2
+  [1m[35m (218.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[36mContact Destroy (0.6ms)[0m  [1m[31mDELETE FROM "contacts" WHERE "contacts"."id" = ?[0m  [["id", 6]]
+  ↳ db/seeds.rb:2
+  [1m[35m (268.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[36mContact Destroy (0.6ms)[0m  [1m[31mDELETE FROM "contacts" WHERE "contacts"."id" = ?[0m  [["id", 7]]
+  ↳ db/seeds.rb:2
+  [1m[35m (279.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[36mContact Destroy (2.3ms)[0m  [1m[31mDELETE FROM "contacts" WHERE "contacts"."id" = ?[0m  [["id", 8]]
+  ↳ db/seeds.rb:2
+  [1m[35m (266.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[36mContact Destroy (0.6ms)[0m  [1m[31mDELETE FROM "contacts" WHERE "contacts"."id" = ?[0m  [["id", 9]]
+  ↳ db/seeds.rb:2
+  [1m[35m (267.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[36mContact Create (0.6ms)[0m  [1m[32mINSERT INTO "contacts" ("id", "name", "company", "email", "phone", "address", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 0], ["name", "Neely Zulauf"], ["company", "Ritchie LLC"], ["email", "bernardcarter@smithkozey.name"], ["phone", "1-271-519-6210"], ["address", "Boehm Spring 24541 South Vivianaland"], ["created_at", "2019-01-02 11:59:49.140874"], ["updated_at", "2019-01-02 11:59:49.140874"]]
+  ↳ db/seeds.rb:18
+  [1m[35m (264.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[36mContact Create (0.8ms)[0m  [1m[32mINSERT INTO "contacts" ("id", "name", "company", "email", "phone", "address", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["name", "Maya Gusikowski"], ["company", "Lubowitz and Sons"], ["email", "evelinaokuneva@abbottmarks.co"], ["phone", "1-924-340-3119"], ["address", "Yung Vista 15536-6293 South Karisa"], ["created_at", "2019-01-02 11:59:49.410585"], ["updated_at", "2019-01-02 11:59:49.410585"]]
+  ↳ db/seeds.rb:18
+  [1m[35m (246.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[36mContact Create (0.3ms)[0m  [1m[32mINSERT INTO "contacts" ("id", "name", "company", "email", "phone", "address", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 2], ["name", "Aaron Rice"], ["company", "Ankunding and Sons"], ["email", "cristenzulauf@pollich.info"], ["phone", "1-414-708-9198"], ["address", "Harold Causeway 19649 Adamsport"], ["created_at", "2019-01-02 11:59:49.663726"], ["updated_at", "2019-01-02 11:59:49.663726"]]
+  ↳ db/seeds.rb:18
+  [1m[35m (219.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[36mContact Create (5.9ms)[0m  [1m[32mINSERT INTO "contacts" ("id", "name", "company", "email", "phone", "address", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 3], ["name", "Shalanda Reichert"], ["company", "Ziemann-Sanford"], ["email", "cherrymuller@bailey.io"], ["phone", "(426) 207-4954"], ["address", "Toby Prairie 02182 Chasbury"], ["created_at", "2019-01-02 11:59:49.888399"], ["updated_at", "2019-01-02 11:59:49.888399"]]
+  ↳ db/seeds.rb:18
+  [1m[35m (211.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[36mContact Create (0.9ms)[0m  [1m[32mINSERT INTO "contacts" ("id", "name", "company", "email", "phone", "address", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 4], ["name", "Jerald Bauch"], ["company", "Thiel and Sons"], ["email", "sharieokon@hegmann.io"], ["phone", "(455) 639-6801"], ["address", "Fadel Haven 16862 Bartelltown"], ["created_at", "2019-01-02 11:59:50.112998"], ["updated_at", "2019-01-02 11:59:50.112998"]]
+  ↳ db/seeds.rb:18
+  [1m[35m (276.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[36mContact Create (0.8ms)[0m  [1m[32mINSERT INTO "contacts" ("id", "name", "company", "email", "phone", "address", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 5], ["name", "Asa Towne I"], ["company", "Schamberger LLC"], ["email", "joellen@wunsch.org"], ["phone", "990.643.0202"], ["address", "Schmitt Circle 94128-7072 South Morgan"], ["created_at", "2019-01-02 11:59:50.396917"], ["updated_at", "2019-01-02 11:59:50.396917"]]
+  ↳ db/seeds.rb:18
+  [1m[35m (227.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[36mContact Create (0.8ms)[0m  [1m[32mINSERT INTO "contacts" ("id", "name", "company", "email", "phone", "address", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 6], ["name", "Daisey Koelpin"], ["company", "Prohaska-Zboncak"], ["email", "janette@boyer.name"], ["phone", "(634) 376-3110"], ["address", "Stokes Brooks 79201 Lake Elenafurt"], ["created_at", "2019-01-02 11:59:50.632388"], ["updated_at", "2019-01-02 11:59:50.632388"]]
+  ↳ db/seeds.rb:18
+  [1m[35m (209.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[36mContact Create (0.7ms)[0m  [1m[32mINSERT INTO "contacts" ("id", "name", "company", "email", "phone", "address", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 7], ["name", "Stasia Murphy"], ["company", "Veum, Ritchie and Hand"], ["email", "aurelia@rohanharber.org"], ["phone", "981-822-1033"], ["address", "Marion Turnpike 34773-7668 Lake Felicidadville"], ["created_at", "2019-01-02 11:59:50.849870"], ["updated_at", "2019-01-02 11:59:50.849870"]]
+  ↳ db/seeds.rb:18
+  [1m[35m (267.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[36mContact Create (0.8ms)[0m  [1m[32mINSERT INTO "contacts" ("id", "name", "company", "email", "phone", "address", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 8], ["name", "Cecil Rogahn"], ["company", "Erdman-Crooks"], ["email", "lazaroebert@howe.co"], ["phone", "292-333-9153"], ["address", "Franklyn Station 23889-5745 Raisaberg"], ["created_at", "2019-01-02 11:59:51.125841"], ["updated_at", "2019-01-02 11:59:51.125841"]]
+  ↳ db/seeds.rb:18
+  [1m[35m (428.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[36mContact Create (0.7ms)[0m  [1m[32mINSERT INTO "contacts" ("id", "name", "company", "email", "phone", "address", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 9], ["name", "Tashia Bechtelar MD"], ["company", "Ebert LLC"], ["email", "jenelleherzog@fritsch.net"], ["phone", "564.905.1111"], ["address", "Stephenie Drive 08025 Lake Jazmin"], ["created_at", "2019-01-02 11:59:51.565271"], ["updated_at", "2019-01-02 11:59:51.565271"]]
+  ↳ db/seeds.rb:18
+  [1m[35m (240.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:20
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ db/seeds.rb:20
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mContact Load (0.2ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts"[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[36mContact Destroy (0.2ms)[0m  [1m[31mDELETE FROM "contacts" WHERE "contacts"."id" = ?[0m  [["id", 0]]
+  ↳ db/seeds.rb:2
+  [1m[35m (400.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[36mContact Destroy (0.7ms)[0m  [1m[31mDELETE FROM "contacts" WHERE "contacts"."id" = ?[0m  [["id", 1]]
+  ↳ db/seeds.rb:2
+  [1m[35m (226.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[36mContact Destroy (0.8ms)[0m  [1m[31mDELETE FROM "contacts" WHERE "contacts"."id" = ?[0m  [["id", 2]]
+  ↳ db/seeds.rb:2
+  [1m[35m (268.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[36mContact Destroy (0.6ms)[0m  [1m[31mDELETE FROM "contacts" WHERE "contacts"."id" = ?[0m  [["id", 3]]
+  ↳ db/seeds.rb:2
+  [1m[35m (277.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[36mContact Destroy (0.3ms)[0m  [1m[31mDELETE FROM "contacts" WHERE "contacts"."id" = ?[0m  [["id", 4]]
+  ↳ db/seeds.rb:2
+  [1m[35m (208.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[36mContact Destroy (0.2ms)[0m  [1m[31mDELETE FROM "contacts" WHERE "contacts"."id" = ?[0m  [["id", 5]]
+  ↳ db/seeds.rb:2
+  [1m[35m (242.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[36mContact Destroy (0.6ms)[0m  [1m[31mDELETE FROM "contacts" WHERE "contacts"."id" = ?[0m  [["id", 6]]
+  ↳ db/seeds.rb:2
+  [1m[35m (212.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[36mContact Destroy (0.6ms)[0m  [1m[31mDELETE FROM "contacts" WHERE "contacts"."id" = ?[0m  [["id", 7]]
+  ↳ db/seeds.rb:2
+  [1m[35m (274.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[36mContact Destroy (0.2ms)[0m  [1m[31mDELETE FROM "contacts" WHERE "contacts"."id" = ?[0m  [["id", 8]]
+  ↳ db/seeds.rb:2
+  [1m[35m (297.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[36mContact Destroy (0.6ms)[0m  [1m[31mDELETE FROM "contacts" WHERE "contacts"."id" = ?[0m  [["id", 9]]
+  ↳ db/seeds.rb:2
+  [1m[35m (269.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[36mContact Create (0.3ms)[0m  [1m[32mINSERT INTO "contacts" ("id", "name", "company", "email", "phone", "address", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 0], ["name", "Merrill Schultz"], ["company", "Bergstrom and Sons"], ["email", "jamar@metz.biz"], ["phone", "760.705.4777"], ["address", "Tamera Glen 16789-9807 McLaughlinchester"], ["created_at", "2019-01-02 12:01:01.570946"], ["updated_at", "2019-01-02 12:01:01.570946"]]
+  ↳ db/seeds.rb:18
+  [1m[35m (209.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[36mContact Create (0.7ms)[0m  [1m[32mINSERT INTO "contacts" ("id", "name", "company", "email", "phone", "address", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["name", "Julio Morar DVM"], ["company", "Volkman-Labadie"], ["email", "henry@thiel.io"], ["phone", "876-387-8092"], ["address", "Kihn Crest 18160-7955 Abshireshire"], ["created_at", "2019-01-02 12:01:01.785122"], ["updated_at", "2019-01-02 12:01:01.785122"]]
+  ↳ db/seeds.rb:18
+  [1m[35m (229.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[36mContact Create (0.8ms)[0m  [1m[32mINSERT INTO "contacts" ("id", "name", "company", "email", "phone", "address", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 2], ["name", "Ignacio Jakubowski"], ["company", "Parisian Inc"], ["email", "graigschulist@lang.org"], ["phone", "(629) 957-6676"], ["address", "Berge View 58177-2812 Bernaland"], ["created_at", "2019-01-02 12:01:02.021660"], ["updated_at", "2019-01-02 12:01:02.021660"]]
+  ↳ db/seeds.rb:18
+  [1m[35m (208.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[36mContact Create (0.7ms)[0m  [1m[32mINSERT INTO "contacts" ("id", "name", "company", "email", "phone", "address", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 3], ["name", "Will Fadel"], ["company", "Macejkovic LLC"], ["email", "marciwisoky@runolfsdottirdaniel.io"], ["phone", "(255) 499-9052"], ["address", "Buckridge Spurs 00795-8446 Tedhaven"], ["created_at", "2019-01-02 12:01:02.238160"], ["updated_at", "2019-01-02 12:01:02.238160"]]
+  ↳ db/seeds.rb:18
+  [1m[35m (228.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[36mContact Create (0.7ms)[0m  [1m[32mINSERT INTO "contacts" ("id", "name", "company", "email", "phone", "address", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 4], ["name", "Mrs. Elia Smitham"], ["company", "Johnson Group"], ["email", "brooks@bergstrom.info"], ["phone", "1-813-432-4403"], ["address", "Jae Ridge 89268-8827 North Gwennhaven"], ["created_at", "2019-01-02 12:01:02.473837"], ["updated_at", "2019-01-02 12:01:02.473837"]]
+  ↳ db/seeds.rb:18
+  [1m[35m (211.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[36mContact Create (0.8ms)[0m  [1m[32mINSERT INTO "contacts" ("id", "name", "company", "email", "phone", "address", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 5], ["name", "Noble Upton"], ["company", "Beatty Inc"], ["email", "jacksontremblay@legros.io"], ["phone", "(214) 812-8731"], ["address", "Balistreri Park 63400 Leuschketon"], ["created_at", "2019-01-02 12:01:02.692588"], ["updated_at", "2019-01-02 12:01:02.692588"]]
+  ↳ db/seeds.rb:18
+  [1m[35m (212.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[36mContact Create (0.7ms)[0m  [1m[32mINSERT INTO "contacts" ("id", "name", "company", "email", "phone", "address", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 6], ["name", "Federico Hartmann"], ["company", "Schowalter LLC"], ["email", "hillarymurray@luettgen.name"], ["phone", "1-550-318-6092"], ["address", "Senaida Key 65138-6391 South Carliport"], ["created_at", "2019-01-02 12:01:02.911715"], ["updated_at", "2019-01-02 12:01:02.911715"]]
+  ↳ db/seeds.rb:18
+  [1m[35m (254.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[36mContact Create (0.2ms)[0m  [1m[32mINSERT INTO "contacts" ("id", "name", "company", "email", "phone", "address", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 7], ["name", "Floria Deckow MD"], ["company", "MacGyver-Ziemann"], ["email", "eloyprosacco@koepp.io"], ["phone", "(331) 080-3713"], ["address", "Gregg Burgs 98415-8784 Franeckimouth"], ["created_at", "2019-01-02 12:01:03.173455"], ["updated_at", "2019-01-02 12:01:03.173455"]]
+  ↳ db/seeds.rb:18
+  [1m[35m (489.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[36mContact Create (0.3ms)[0m  [1m[32mINSERT INTO "contacts" ("id", "name", "company", "email", "phone", "address", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 8], ["name", "Rowena Paucek"], ["company", "Keeling, Rath and O'Kon"], ["email", "stevewill@cremin.io"], ["phone", "1-309-334-4747"], ["address", "Upton Estates 06273-2060 Wilkinsonview"], ["created_at", "2019-01-02 12:01:03.667275"], ["updated_at", "2019-01-02 12:01:03.667275"]]
+  ↳ db/seeds.rb:18
+  [1m[35m (222.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[36mContact Create (0.8ms)[0m  [1m[32mINSERT INTO "contacts" ("id", "name", "company", "email", "phone", "address", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 9], ["name", "Larissa Hansen"], ["company", "Reilly-Hirthe"], ["email", "edgar@ferrymoriette.biz"], ["phone", "326.816.5422"], ["address", "Foster Trail 90050 North Stacia"], ["created_at", "2019-01-02 12:01:03.894447"], ["updated_at", "2019-01-02 12:01:03.894447"]]
+  ↳ db/seeds.rb:18
+  [1m[35m (211.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:20
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ db/seeds.rb:20
+Started GET "/contacts/new" for 127.0.0.1 at 2019-01-02 09:02:37 -0300
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/devs/.rvm/gems/ruby-2.3.1/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by ContactsController#new as HTML
+  Rendering contacts/new.html.erb within layouts/application
+  Rendered contacts/_form.html.erb (62.3ms)
+  Rendered contacts/new.html.erb within layouts/application (64.6ms)
+Completed 200 OK in 360ms (Views: 341.6ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-02 09:02:42 -0300
+Processing by ContactsController#index as HTML
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (0.4ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts"[0m
+  ↳ app/views/contacts/index.html.erb:4
+  Rendered contacts/index.html.erb within layouts/application (12.7ms)
+Completed 200 OK in 131ms (Views: 127.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-02 09:06:52 -0300
+Processing by ContactsController#index as HTML
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (0.9ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts"[0m
+  ↳ app/views/contacts/index.html.erb:4
+  Rendered contacts/index.html.erb within layouts/application (11.2ms)
+Completed 200 OK in 86ms (Views: 79.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-02 09:06:53 -0300
+Processing by ContactsController#index as HTML
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (0.5ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts"[0m
+  ↳ app/views/contacts/index.html.erb:4
+  Rendered contacts/index.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 96ms (Views: 92.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-02 09:06:54 -0300
+Processing by ContactsController#index as HTML
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (0.4ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts"[0m
+  ↳ app/views/contacts/index.html.erb:4
+  Rendered contacts/index.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 101ms (Views: 91.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/contacts/new" for 127.0.0.1 at 2019-01-02 09:06:57 -0300
+Processing by ContactsController#new as HTML
+  Rendering contacts/new.html.erb within layouts/application
+  Rendered contacts/_form.html.erb (10.7ms)
+  Rendered contacts/new.html.erb within layouts/application (13.6ms)
+Completed 200 OK in 94ms (Views: 90.6ms | ActiveRecord: 0.0ms)
+
+
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (112.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ bin/rails:9
+  [1m[35m (525.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (411.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateContacts (20181228001538)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "contacts" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "company" varchar, "email" varchar, "phone" varchar, "address" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20181228001538_create_contacts.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20181228001538"]]
+  ↳ bin/rails:9
+  [1m[35m (346.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateUsers (20190102115051)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "document" varchar, "kind" integer, "status" integer, "notes" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190102115051_create_users.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190102115051"]]
+  ↳ bin/rails:9
+  [1m[35m (358.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to AddDeviseToUsers (20190102115146)
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "users" ADD "email" varchar DEFAULT '' NOT NULL[0m
+  ↳ db/migrate/20190102115146_add_devise_to_users.rb:7
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "users" ADD "encrypted_password" varchar DEFAULT '' NOT NULL[0m
+  ↳ db/migrate/20190102115146_add_devise_to_users.rb:8
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "users" ADD "reset_password_token" varchar[0m
+  ↳ db/migrate/20190102115146_add_devise_to_users.rb:11
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "users" ADD "reset_password_sent_at" datetime[0m
+  ↳ db/migrate/20190102115146_add_devise_to_users.rb:12
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "users" ADD "remember_created_at" datetime[0m
+  ↳ db/migrate/20190102115146_add_devise_to_users.rb:15
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  ↳ db/migrate/20190102115146_add_devise_to_users.rb:40
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  ↳ db/migrate/20190102115146_add_devise_to_users.rb:41
+  [1m[36mActiveRecord::SchemaMigration Create (1.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190102115146"]]
+  ↳ bin/rails:9
+  [1m[35m (492.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-01-02 12:17:27.969612"], ["updated_at", "2019-01-02 12:17:27.969612"]]
+  ↳ bin/rails:9
+  [1m[35m (281.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mContact Load (0.6ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts"[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[36mContact Create (1.0ms)[0m  [1m[32mINSERT INTO "contacts" ("id", "name", "company", "email", "phone", "address", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 0], ["name", "Alton Spencer"], ["company", "Goodwin, Wintheiser and Funk"], ["email", "zoraida@stromanbrown.co"], ["phone", "1-425-044-9154"], ["address", "Spencer Forges 18235 Port Eric"], ["created_at", "2019-01-02 12:17:38.411777"], ["updated_at", "2019-01-02 12:17:38.411777"]]
+  ↳ db/seeds.rb:18
+  [1m[35m (337.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[36mContact Create (0.7ms)[0m  [1m[32mINSERT INTO "contacts" ("id", "name", "company", "email", "phone", "address", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["name", "Elijah Stamm"], ["company", "Lind, Cronin and Runolfsson"], ["email", "austinorn@considine.net"], ["phone", "594.072.4268"], ["address", "Schaden Landing 60486-3920 Hartmannview"], ["created_at", "2019-01-02 12:17:38.754025"], ["updated_at", "2019-01-02 12:17:38.754025"]]
+  ↳ db/seeds.rb:18
+  [1m[35m (455.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[36mContact Create (2.2ms)[0m  [1m[32mINSERT INTO "contacts" ("id", "name", "company", "email", "phone", "address", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 2], ["name", "Lamar Frami"], ["company", "Toy, Bergnaum and Toy"], ["email", "tawanna@reichertharvey.biz"], ["phone", "214.656.7426"], ["address", "Treutel Ports 27240-3047 Schmelerport"], ["created_at", "2019-01-02 12:17:39.217938"], ["updated_at", "2019-01-02 12:17:39.217938"]]
+  ↳ db/seeds.rb:18
+  [1m[35m (279.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[36mContact Create (0.7ms)[0m  [1m[32mINSERT INTO "contacts" ("id", "name", "company", "email", "phone", "address", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 3], ["name", "Breanne Kassulke"], ["company", "Ebert Inc"], ["email", "lucianoroberts@wuckertfeest.com"], ["phone", "988.138.8431"], ["address", "Claud Street 04844 South Sanjuanita"], ["created_at", "2019-01-02 12:17:39.506259"], ["updated_at", "2019-01-02 12:17:39.506259"]]
+  ↳ db/seeds.rb:18
+  [1m[35m (220.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[36mContact Create (4.6ms)[0m  [1m[32mINSERT INTO "contacts" ("id", "name", "company", "email", "phone", "address", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 4], ["name", "Lois Balistreri"], ["company", "Bahringer-Kuhlman"], ["email", "hilariomante@damore.org"], ["phone", "619-695-4303"], ["address", "Temple Dale 43491-6987 Daughertyport"], ["created_at", "2019-01-02 12:17:39.736580"], ["updated_at", "2019-01-02 12:17:39.736580"]]
+  ↳ db/seeds.rb:18
+  [1m[35m (233.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[36mContact Create (1.0ms)[0m  [1m[32mINSERT INTO "contacts" ("id", "name", "company", "email", "phone", "address", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 5], ["name", "Ramon Adams"], ["company", "Pfeffer, Bailey and Gibson"], ["email", "cleowest@dickens.info"], ["phone", "(242) 060-2735"], ["address", "Corwin Mission 06161 Lake Louis"], ["created_at", "2019-01-02 12:17:39.985921"], ["updated_at", "2019-01-02 12:17:39.985921"]]
+  ↳ db/seeds.rb:18
+  [1m[35m (264.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[36mContact Create (4.2ms)[0m  [1m[32mINSERT INTO "contacts" ("id", "name", "company", "email", "phone", "address", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 6], ["name", "Mariano Monahan"], ["company", "Rodriguez, Predovic and Pacocha"], ["email", "elmer@hellerhuel.io"], ["phone", "968-891-3864"], ["address", "DuBuque Plains 03292 West Cruz"], ["created_at", "2019-01-02 12:17:40.260571"], ["updated_at", "2019-01-02 12:17:40.260571"]]
+  ↳ db/seeds.rb:18
+  [1m[35m (224.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[36mContact Create (0.6ms)[0m  [1m[32mINSERT INTO "contacts" ("id", "name", "company", "email", "phone", "address", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 7], ["name", "Antione Casper DVM"], ["company", "Wyman Inc"], ["email", "noelbode@miller.net"], ["phone", "(121) 073-8928"], ["address", "Marianne Burgs 34015-2856 Lake Terrilyn"], ["created_at", "2019-01-02 12:17:40.498573"], ["updated_at", "2019-01-02 12:17:40.498573"]]
+  ↳ db/seeds.rb:18
+  [1m[35m (267.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[36mContact Create (0.8ms)[0m  [1m[32mINSERT INTO "contacts" ("id", "name", "company", "email", "phone", "address", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 8], ["name", "Scott Powlowski II"], ["company", "Raynor, Feeney and Goyette"], ["email", "tobiastrantow@runte.co"], ["phone", "(330) 872-9747"], ["address", "Raul Club 23140 North Agustinton"], ["created_at", "2019-01-02 12:17:40.773240"], ["updated_at", "2019-01-02 12:17:40.773240"]]
+  ↳ db/seeds.rb:18
+  [1m[35m (222.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[36mContact Create (0.3ms)[0m  [1m[32mINSERT INTO "contacts" ("id", "name", "company", "email", "phone", "address", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 9], ["name", "Susan Franecki"], ["company", "Morar-Sauer"], ["email", "shaunabernathy@jones.io"], ["phone", "1-121-030-9766"], ["address", "Heidenreich Lake 61832-9551 South Layneberg"], ["created_at", "2019-01-02 12:17:41.001432"], ["updated_at", "2019-01-02 12:17:41.001432"]]
+  ↳ db/seeds.rb:18
+  [1m[35m (269.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:18
+Started GET "/contacts/new" for 127.0.0.1 at 2019-01-02 09:18:04 -0300
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/devs/.rvm/gems/ruby-2.3.1/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by ContactsController#new as HTML
+  Rendering contacts/new.html.erb within layouts/application
+  Rendered contacts/_form.html.erb (60.5ms)
+  Rendered contacts/new.html.erb within layouts/application (63.9ms)
+Completed 200 OK in 556ms (Views: 540.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-02 09:18:10 -0300
+Processing by ContactsController#index as HTML
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (2.0ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts"[0m
+  ↳ app/views/contacts/index.html.erb:4
+  Rendered contacts/index.html.erb within layouts/application (15.8ms)
+Completed 200 OK in 135ms (Views: 129.7ms | ActiveRecord: 2.0ms)
+
+
